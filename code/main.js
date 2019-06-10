@@ -1,7 +1,8 @@
 var points = new Decimal(0); //this defines the players points use the "new Decimal" thing on the end because thats how we are going to handle numbers over 1e308
 var pointsProduction = new Decimal(0);
+var pps  = new Decimal(0)
 var pointsClick = new Decimal(1);
-
+var temp1 = new Decimal(0)
 var page = 0;
 
 var generators = [] //this is defining a list with nothing inside
@@ -129,6 +130,8 @@ Vue.component('todo-item', {
 function gameLoop()
 {
 	points = points.add(pointsProduction)
+	pps = pointsProduction.multiply(10)
+	temp1 = generators[page].production.multiply(10)
 	document.getElementById("points").innerHTML = "Points:" + points;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
@@ -138,8 +141,9 @@ function gameLoop()
 	ctx.fillText("You own " +  generators[page].amount,0,40);
 	ctx.fillText("Cost: " +  generators[page].price,0,60);
 	
-	document.getElementById("genName").innerHTML = "generator " + page;
-	document.getElementById("genOwned").innerHTML = "You own " +  generators[page].amount;
+	document.getElementById("genName").innerHTML = "Generator " + page;
+	document.getElementById("genOwned").innerHTML = "You own " +  generators[page].amount + ".";
 	document.getElementById("genPrice").innerHTML = "Cost: " +  generators[page].price;
+	document.getElementById("genProd").innerHTML = "It makes " + temp1 + " points per second."
 }
 setInterval(gameLoop,100);
