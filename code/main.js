@@ -2,8 +2,9 @@ var points = new Decimal(0); //this defines the players points use the "new Deci
 var pointsProduction = new Decimal(0);
 var pps  = new Decimal(0)
 var pointsClick = new Decimal(1);
-var temp1 = new Decimal(0)
 var page = 0;
+
+var temp1 = new Decimal(0)
 
 var generators = [] //this is defining a list with nothing inside
 makeGenerators();
@@ -66,6 +67,22 @@ function buyGen(generator) //you can also make functions to take in varibles lik
 	}
 }
 
+function format(x)
+{
+	var abb = ["","K","M","B","T","q","Q","s","S","O","N","d","U","D"]
+	var lay = x.layer
+	var mag = x.mag
+	if(x.lessThan(1000))
+	{
+		var factor = new Decimal((x.log(10).floor().add(3)).pow10())
+		
+		x = x.times(factor);
+		x = x.floor();
+		x = x.divide(factor);
+		return x
+	}
+}
+
 function clickPoints()
 {
 	points = points.add(1);
@@ -82,19 +99,16 @@ function gameLoop()
 {
 	points = points.add(pointsProduction)
 	pps = pointsProduction.multiply(10)
-	temp1 = generators[page].production.multiply(10)
 	document.getElementById("points").innerHTML = "Points:" + points;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	
+	app.message = format(points)
 	
 	ctx.font = "16px Arial";
 	ctx.fillStyle = "#000000";
 	ctx.fillText("generator " + (page + 1),0,20);
 	ctx.fillText("You own " +  generators[page].amount,0,40);
 	ctx.fillText("Cost: " +  generators[page].price,0,60);
-	
-	document.getElementById("genName").innerHTML = "Generator " + page;
-	document.getElementById("genOwned").innerHTML = "You own " +  generators[page].amount + ".";
-	document.getElementById("genPrice").innerHTML = "Cost: " +  generators[page].price;
-	document.getElementById("genProd").innerHTML = "It makes " + temp1 + " points per second."
+	ctx.fillText("It makes " + (generators[page].production.multiply(10)) + " points/sec.",0,80);
 }
 setInterval(gameLoop,100);
