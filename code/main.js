@@ -106,8 +106,8 @@ function gameLoop()
 	
 	ctx.font = "16px Arial";
 	ctx.fillStyle = "#000000";
-	ctx.fillText("generator " + (page + 1),0,20);
-	ctx.fillText("You own " +  generators[page].amount,0,40);
+	ctx.fillText("Generator " + (page + 1),0,20);
+	ctx.fillText("You own " +  generators[page].amount,0,40 + ".");
 	ctx.fillText("Cost: " +  generators[page].price,0,60);
 	ctx.fillText("It makes " + (generators[page].production.multiply(10)) + " points/sec.",0,80);
 }
