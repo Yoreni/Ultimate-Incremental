@@ -100,6 +100,7 @@ function gameLoop()
 	points = points.add(pointsProduction)
 	pps = pointsProduction.multiply(10)
 	document.getElementById("points").innerHTML = "Points:" + points;
+	document.getElementById("ppc").innerHTML = "+" + temp1 + " points"
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
 	app.message = format(points)
