@@ -10,6 +10,7 @@ var generators = [] //this is defining a list with nothing inside
 makeGenerators();
 
 var canvas = document.getElementById("buttonBackground");
+var canvas = document.getElementById("clickable");
 var ctx = canvas.getContext("2d");
 
 var vm = new Vue({
