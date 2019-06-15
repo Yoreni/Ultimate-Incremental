@@ -124,7 +124,7 @@ function gameLoop()
 	ctx2.fillStyle = "#000000";
 	ctx2.fillText("$$$ Click $$$",0,20);
 	ctx2.fillText( "+" + pointsClick + " points",0,40);
-	ctx2.fillText("textAlign=center", 0, 20);
-	ctx2.fillText("textAlign=center", 0, 40);
+	ctx2.textAlign = "center"; 
+	
 }
 setInterval(gameLoop,100);
