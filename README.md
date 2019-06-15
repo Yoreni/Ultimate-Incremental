@@ -5,7 +5,7 @@ play at https://yoreni.github.io/Ultimate-Incremental/index.html
 
 **==========JS VERSION==============**
 
-v9α(dabom2000) made the clickable orange 
+v9α(dabom2000) made the clickable orange like in the scratch version,and made it smaller.
 
 v8α(dabom2000) added a purple background, and deleted the number at the bottom
 
