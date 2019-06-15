@@ -11,6 +11,7 @@ makeGenerators();
 
 var canvas = document.getElementById("buttonBackground");
 var c2 = document.getElementById("clickable");
+var ctx2 = c2.getContext("2d");
 var ctx = canvas.getContext("2d");
 
 var vm = new Vue({
@@ -86,7 +87,7 @@ function format(x)
 
 function clickPoints()
 {
-	points = points.add(1);
+	points = points.add(pointsClick);
 }
 
 var app = new Vue({
@@ -101,7 +102,6 @@ function gameLoop()
 	points = points.add(pointsProduction)
 	pps = pointsProduction.multiply(10)
 	document.getElementById("points").innerHTML = "Points:" + points;
-	document.getElementById("ppc").innerHTML = "+" + pointsClick + " points"
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
 	app.message = format(points)
@@ -109,8 +109,14 @@ function gameLoop()
 	ctx.font = "16px Arial";
 	ctx.fillStyle = "#000000";
 	ctx.fillText("Generator " + (page + 1),0,20);
-	ctx.fillText("You own " +  generators[page].amount,0,40 + ".");
+	ctx.fillText("You own " +  generators[page].amount,0,40);
 	ctx.fillText("Cost: " +  generators[page].price,0,60);
 	ctx.fillText("It makes " + (generators[page].production.multiply(10)) + " points/sec.",0,80);
+	
+	ctx2.clearRect(0, 0, canvas.width, canvas.height);
+	ctx2.font = "16px Arial";
+	ctx2.fillStyle = "#000000";
+	ctx2.fillText("$$$ Click $$$",0,20);
+	ctx2.fillText("+" + pointsClick + " points",0,40);
 }
 setInterval(gameLoop,100);
