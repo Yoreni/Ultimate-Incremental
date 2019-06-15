@@ -4,8 +4,10 @@ play at https://yoreni.github.io/Ultimate-Incremental/index.html
 **Changelogs**
 
 **==========JS VERSION==============**
- 
- v8α(dabom2000) added a purple background, and deleted the number at the bottom
+
+v9α(dabom2000) made the clickable orange 
+
+v8α(dabom2000) added a purple background, and deleted the number at the bottom
 
 v7α(yoreni) fixed cickable and fourth generator text
 
@@ -57,4 +59,4 @@ Made tabs work, added total points statistic, added an upgrades tab along with 1
 v2α (yoreni)
 added 4 more generators and you now can click with the space bar 
 
-v1.0α- Released. Tabs and pages do not work yet (dabom2000)
+v1α- Released. Tabs and pages do not work yet (dabom2000)
