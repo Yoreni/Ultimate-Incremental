@@ -5,7 +5,34 @@ var pointsClick = new Decimal(1);
 var page = 0;
 
 var temp1 = new Decimal(0)
+var game = {
 
+  state: {
+
+  points: 0,
+
+  pointsProduction: 0,
+
+  pointsClick: 1,
+
+  gen1: 0,
+
+  gen1cost: 20,
+  gen2: 0,
+
+  gen2cost: 200,
+  gen3: 0,
+
+  gen3cost: 5000,
+  gen4: 0,
+
+  gen4cost: 2e4,  
+  gen5: 0,
+
+  gen5cost: 1.25e5,
+
+
+}
 var generators = [] //this is defining a list with nothing inside
 makeGenerators();
 
@@ -27,6 +54,16 @@ var vm = new Vue({
 })
 vm.message = 'a'
 
+function save() {
+
+    localStorage.cc = btoa(JSON.stringify(game));
+
+};
+function load() {
+
+    if(!localStorage.cc) return;
+
+    game = JSON.parse(atob(localStorage.cc));
 function makeGenerators()
 {
 	var prices = ["20","200","5000","2e4","1.25e5"] // this is define a list with 2 elements inside
@@ -66,6 +103,8 @@ function buyGen(generator) //you can also make functions to take in varibles lik
 		generators[generator - 1].amount = generators[generator - 1].amount.add(1); //adds 1 to the generator amount
 		generators[generator - 1].price = generators[generator - 1].price.times(1.2) //mutiplys the gen cost by 1
 		pointsProduction = pointsProduction.add(generators[generator - 1].production) //addes the production thing
+		game.state.["gen" + generator-1] = generators[generator-1].amount
+		game.state.["gen" + generator-1 + "cost"] = generators[generator-1].price
 	}
 }
 
@@ -94,6 +133,7 @@ function format(x)
 function clickPoints()
 {
 	points = points.add(pointsClick);
+	game.state.pts = game.state.pts.add(pointsClick);
 }
 
 var app = new Vue({
@@ -103,10 +143,14 @@ var app = new Vue({
   }
 })
 
+load();
 function gameLoop()
 {
 	points = points.add(pointsProduction)
+	game.state.pts = game.state.pts.add(pointsProduction)
 	pps = pointsProduction.multiply(10)
+	game.state.pps = pointsProduction.multiply(10)
+	game.state.ppc = pointsClick.add(0)
 	document.getElementById("points").innerHTML = "Points:" + points;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
