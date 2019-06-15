@@ -3,3 +3,9 @@
 	border: 2px solid #000000;
 	background: #80ff80;
 }
+
+/*this just gets rid of the ugly blue highlight you get when clicking*/
+.noselect 
+{
+	user-select: none;
+}

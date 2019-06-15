@@ -74,14 +74,20 @@ function format(x)
 	var abb = ["","K","M","B","T","q","Q","s","S","O","N","d","U","D"]
 	var lay = x.layer
 	var mag = x.mag
-	if(x.lessThan(1000))
+	if(x.equals(0)) return "0";
+	else if(x.lessThan(1000))
 	{
-		var factor = new Decimal((x.log(10).floor().add(3)).pow10())
-		
-		x = x.times(factor);
-		x = x.floor();
-		x = x.divide(factor);
-		return x
+		return Math.round(mag);
+	}
+	else if(x.lessThan(new Decimal("1e" + (abb.length * 3))))
+	{
+		if(mag <= (abb.length * 3))
+		{
+			mag = Math.pow(10,mag)
+			lay--;
+		}
+		var factor = Math.pow(10,Math.floor(Math.log10(mag) / 3) * 3);
+		return Math.floor((x / factor) * 100) / 100 + abb[Math.log10(factor) / 3];
 	}
 }
 

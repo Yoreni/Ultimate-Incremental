@@ -7,10 +7,12 @@
 	<p id="points"></p>
 	<p id="prod"> </p>
 	
-	<canvas class="buttonBackground" id="clickable" onclick="clickPoints()" width="200" height="75">
+	<canvas class="buttonBackground noselect" id="clickable" onclick="clickPoints()" width="200" height="75">
 	</canvas>
-	<canvas class="buttonBackground" id="buttonBackground" onclick="buyGen(page + 1)" width="200" height="100">
+	<canvas class="buttonBackground noselect" id="buttonBackground" onclick="buyGen(page + 1)" width="200" height="100">
 	</canvas>
+	
+	<button class="buttonBackground noselect">test</button>
 	
 	<div id="app2">
   {{ message }}
