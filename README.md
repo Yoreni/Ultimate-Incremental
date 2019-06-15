@@ -1,9 +1,17 @@
 # Ultimate-Incremental
 play at https://yoreni.github.io/Ultimate-Incremental/index.html
 
-v?
-moved to java script to get rid of lag the game has lots alot of fetures 
- 
+#Changelogs
+#==========JS VERSION==============
+ v8α(dabom2000) added a purple background, and deleted the number at the bottom
+ v7α(yoreni) fixed cickable and fourth generator text
+ v6α(dabom2000) tried adding clickale as a button like the generator one
+ v5α(dabom2000) capitalized generator button, and deleted the useless buttons
+ v4α(yoreni) made the UI a little better
+ v3α(dabom2000) generators 2 -> 5
+ v2α(dabom2000) added gen 2 again
+ v1α(yoreni) moved to javascript to get rid of the lag
+ #=========SCRATCH VERSION=========
 v1β(dabom2000)
 named every single clicking upgrade, and added an animation for the extra points clickable fading away
 
