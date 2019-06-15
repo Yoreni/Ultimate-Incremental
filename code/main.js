@@ -122,8 +122,8 @@ function gameLoop()
 	ctx2.clearRect(0, 0, canvas.width, canvas.height);
 	ctx2.font = "16px Arial";
 	ctx2.fillStyle = "#000000";
-	ctx2.fillText("$$$ Click $$$",50,20);
-	ctx2.fillText( "+" + pointsClick + " points",50,40);
+	ctx2.fillText("$$$ Click $$$",45,20);
+	ctx2.fillText( "+" + pointsClick + " points",61,40);
 	ctx2.textAlign = "left"; 
 	
 }
