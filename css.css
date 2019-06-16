@@ -1,16 +1,31 @@
-body{background-color:#8276e4}
+body
+{
+	background-color:#8276e4
+}
 
+button
+{
+	white-space: normal;
+}
+
+button:focus 
+{
+	outline:0;
+}
 	
 .buttonBackground
 {
 	border: 2px solid #000000;
 	background: #80ff80;
+	text-align: center;
+	float: right;
 }
 .buttonBackground2
 {
 	border: 2px solid #000000;
 	background: #ff7f50;
 	text-align: center;
+	float: left;
 }
 
 /*this just gets rid of the ugly blue highlight you get when clicking*/
