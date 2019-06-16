@@ -7,9 +7,11 @@
 
 </head>
 <body>
-	<p id="points" style="float:right"></p>
-	<p id="prod"> </p>
-  <table>
+	<div>
+		<p id="points" style="position: relative;"></p>
+	</div>
+	<div>
+		<table>
 	<!--<tr>
 		<td><canvas style="text-align:center" class="buttonBackground2 noselect" id="clickable" onclick="clickPoints()" width="200" height="50"></canvas></td>
 	</tr>
@@ -18,13 +20,14 @@
 		</canvas></td>
 	</tr>
 	!-->
-	<tr>
-		<td><button class="buttonBackground2 noselect" style="text-align:center; height:50px; width:200px" id="clickable" onclick="clickPoints()" width="200" height="50">click</button></td>
-	</tr>
-	<tr>
-		<td><button class="buttonBackground noselect" style="height:100px; width:200px" onclick="buyGen(page + 1)" id="buttonBackground">gen</button></td>
-	</tr>
-  </table>
+			<tr>
+				<td><button class="buttonBackground2 noselect" style="text-align:center; height:50px; width:200px" id="clickable" onclick="clickPoints()" width="200" height="50">click</button></td>
+			</tr>
+			<tr>
+				<td><button class="buttonBackground noselect" style="height:100px; width:200px" onclick="buyGen(page + 1)" id="buttonBackground">gen</button></td>
+			</tr>
+		</table>
+	</div>
   
   <button class="buttonBackground noslect" style="height:50px; width:50px" onclick="clickPoints()">test dont remove yet</button>
 	
