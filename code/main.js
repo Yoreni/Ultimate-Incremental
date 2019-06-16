@@ -13,11 +13,6 @@ var temp1 = new Decimal(0)
 var generators = [] //this is defining a list with nothing inside
 makeGenerators();
 
-/*var canvas = document.getElementById("buttonBackground");
-var c2 = document.getElementById("clickable");
-var ctx2 = c2.getContext("2d");
-var ctx = canvas.getContext("2d");
-*/
 
 var vm = new Vue({
   el: "#app",
@@ -129,23 +124,8 @@ function gameLoop()
 	document.getElementById("points").innerHTML = "Points:" + points;
 	document.getElementById("clickable").innerHTML = "$$$ Click $$$</br>+" + pointsClick + " points";
 	document.getElementById("generator").innerHTML = "Generator " + (page + 1) + "</br>You own " + generators[page].amount + "</br>Cost: " + generators[page].price + "</br>It makes " + (generators[page].production.multiply(10)) + " points/sec";
-	//ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 	app.message = format(points)
-	
-	/*ctx.font = "16px Arial";
-	ctx.fillStyle = "#000000";
-	ctx.fillText("Generator " + (page + 1),10,20 + ".");
-	ctx.fillText("You own " +  generators[page].amount,10,40);
-	ctx.fillText("Cost: " +  generators[page].price,10,60);
-	ctx.fillText("It makes " + (generators[page].production.multiply(10)) + " points/sec.",10,80);
-
-	ctx2.clearRect(0, 0, canvas.width, canvas.height);
-	ctx2.font = "16px Arial";
-	ctx2.fillStyle = "#000000";
-	ctx2.fillText("$$$ Click $$$",45,20);
-	ctx2.fillText( "+" + pointsClick + " points",61,40);
-	ctx2.textAlign = "left"; */
 }
 
 setInterval(gameLoop,100);
