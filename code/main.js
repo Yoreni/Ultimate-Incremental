@@ -13,10 +13,11 @@ var temp1 = new Decimal(0)
 var generators = [] //this is defining a list with nothing inside
 makeGenerators();
 
-var canvas = document.getElementById("buttonBackground");
+/*var canvas = document.getElementById("buttonBackground");
 var c2 = document.getElementById("clickable");
 var ctx2 = c2.getContext("2d");
 var ctx = canvas.getContext("2d");
+*/
 
 var vm = new Vue({
   el: "#app",
@@ -88,7 +89,8 @@ function format(x)
 	if(x.equals(0)) return "0";
 	else if(x.lessThan(1000))
 	{
-		return Math.round(mag);
+		var dp = Math.pow(10,((Math.floor(Math.log(mag)) - 2) * -1))
+		return Math.floor((mag * dp)) / dp;
 	}
 	else if(x.lessThan(new Decimal("1e" + (abb.length * 3))))
 	{
@@ -98,7 +100,8 @@ function format(x)
 			lay--;
 		}
 		var factor = Math.pow(10,Math.floor(Math.log10(mag) / 3) * 3);
-		return Math.floor((x / factor) * 100) / 100 + abb[Math.log10(factor) / 3];
+		var dp = Math.pow(10,((Math.floor(Math.log(x / factor)) - 2) * -1))
+		return Math.floor((x / factor) * dp) / dp + abb[Math.log10(factor) / 3];
 	}
 }
 
@@ -124,11 +127,13 @@ function gameLoop()
 	points = points.add(pointsProduction)
 	pps = pointsProduction.multiply(10)
 	document.getElementById("points").innerHTML = "Points:" + points;
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	document.getElementById("clickable").innerHTML = "$$$ Click $$$</br>+" + pointsClick + " points";
+	document.getElementById("generator").innerHTML = "Generator " + (page + 1) + "</br>You own " + generators[page].amount + "</br>Cost: " + generators[page].price + "</br>It makes " + (generators[page].production.multiply(10)) + " points/sec";
+	//ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 	app.message = format(points)
 	
-	ctx.font = "16px Arial";
+	/*ctx.font = "16px Arial";
 	ctx.fillStyle = "#000000";
 	ctx.fillText("Generator " + (page + 1),10,20 + ".");
 	ctx.fillText("You own " +  generators[page].amount,10,40);
@@ -140,7 +145,7 @@ function gameLoop()
 	ctx2.fillStyle = "#000000";
 	ctx2.fillText("$$$ Click $$$",45,20);
 	ctx2.fillText( "+" + pointsClick + " points",61,40);
-	ctx2.textAlign = "left"; 
+	ctx2.textAlign = "left"; */
 }
 
 setInterval(gameLoop,100);

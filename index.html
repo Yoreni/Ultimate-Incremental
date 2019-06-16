@@ -8,23 +8,15 @@
 </head>
 <body>
 	<div>
-		<p id="points" style="position: relative;"></p>
+		<p style="position: relative; left:50%;" id="points">Points:0</p>
 	</div>
 	<div>
-		<table>
-	<!--<tr>
-		<td><canvas style="text-align:center" class="buttonBackground2 noselect" id="clickable" onclick="clickPoints()" width="200" height="50"></canvas></td>
-	</tr>
-	<tr>
-		<td><canvas class="buttonBackground noselect" id="buttonBackground" onclick="buyGen(page + 1)" width="200" height="100">
-		</canvas></td>
-	</tr>
-	!-->
+		<table style="position: relative; left:50%; text-align: center;">
 			<tr>
-				<td><button class="buttonBackground2 noselect" style="text-align:center; height:50px; width:200px" id="clickable" onclick="clickPoints()" width="200" height="50">click</button></td>
+				<td><button class="buttonBackground2 noselect" style="text-align:center; height:50px; width:200px" id="clickable" onclick="clickPoints()" width="200" height="50">$$$ Click $$$</br>+1 points</button></td>
 			</tr>
 			<tr>
-				<td><button class="buttonBackground noselect" style="height:100px; width:200px" onclick="buyGen(page + 1)" id="buttonBackground">gen</button></td>
+				<td><button class="buttonBackground noselect" style="height:100px; width:200px" onclick="buyGen(page + 1)" id="generator">Generator 1</br>You own:0</br>Cost: 20</br>It makes 1 points/sec</button></td>
 			</tr>
 		</table>
 	</div>

@@ -4,7 +4,7 @@ play at https://yoreni.github.io/Ultimate-Incremental/index.html
 **Changelogs**
 
 **==========JS VERSION==============**
-v2β(yoreni) trying is reposition the elements to make it look nicer and orginised
+v2β(yoreni) trying to reposition the elements to make it look nicer and orginised
 
 v1β(dabom2000) re-aligned the click button, and the gen button to make it look better
 
