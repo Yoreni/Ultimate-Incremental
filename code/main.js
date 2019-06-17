@@ -28,26 +28,51 @@ var vm = new Vue({
 
 vm.message = 'a'
 
-
 function makeGenerators()
 {
-	var prices = ["20","200","5000","2e4","1.25e5"] // this is define a list with 2 elements inside
+	var prices = ["20","200","5000","2e4","1.25e5"]
 	var production = ["0.1","1.5","9","30","75"]
+	
 	for(var a = 0 ; a < prices.length ; a = a + 1) //this is a for loop think of it like the repeat block in scratch
 	{
 		generators.push //push justs adds an item on to a list
 		({
 			price: new Decimal(prices[a]),
 			production: new Decimal(production[a]),
-			amount: new Decimal(0)
+			amount: new Decimal(0),
+			muti: new Decimal(1)
 		})
 	}
 }
 
+function defrag(gen)
+{
+	var prices = ["20","200","5000","2e4","1.25e5"]
+	var production = ["0.1","1.5","9","30","75"]
+	
+	generators[gen].muti = calcDefragBooster(gen);
+	generators[gen].amount = new Decimal(0);
+	generators[gen].price = new Decimal(prices[gen]);
+	pointsProduction = calcProduction();
+}
 
+function calcProduction()
+{
+	var total = new Decimal(0);
+	for(const gen of generators)
+	{
+		total = total.add(gen.amount.times(gen.production.times(gen.muti)));
+		//console.log(gen.amount.times(gen.production.times(gen.muti));
+	}
+	return total
+}
+
+function calcDefragBooster(gen)
+{
+	return generators[gen].amount.divide(5).root(1.7);
+}
 
 document.addEventListener('keydown', move); //changes the generator the player wants to buy
-
 function move(e)
 {
 	key = e.keyCode;
@@ -65,12 +90,12 @@ function move(e)
 
 function buyGen(generator) //you can also make functions to take in varibles like this
 {
-	if(points.greaterThanOrEqualTo(generators[generator - 1].price)) //checks if player has enough
+	if(points.greaterThanOrEqualTo(generators[generator].price)) //checks if player has enough
 	{
-		points = points.minus(generators[generator - 1].price); //takes away the points
-		generators[generator - 1].amount = generators[generator - 1].amount.add(1); //adds 1 to the generator amount
-		generators[generator - 1].price = generators[generator - 1].price.times(1.2) //mutiplys the gen cost by 1
-		pointsProduction = pointsProduction.add(generators[generator - 1].production) //addes the production thing
+		points = points.minus(generators[generator].price); //takes away the points
+		generators[generator].amount = generators[generator].amount.add(1); //adds 1 to the generator amount
+		generators[generator].price = generators[generator].price.times(1.2) //mutiplys the gen cost by 1
+		pointsProduction = pointsProduction.add(generators[generator].production.times(generators[generator].muti)) //addes the production thing
 	}
 }
 
@@ -123,7 +148,8 @@ function gameLoop()
 	pps = pointsProduction.multiply(10)
 	document.getElementById("points").innerHTML = "Points:" + points;
 	document.getElementById("clickable").innerHTML = "$$$ Click $$$</br>+" + pointsClick + " points";
-	document.getElementById("generator").innerHTML = "Generator " + (page + 1) + "</br>You own " + generators[page].amount + "</br>Cost: " + generators[page].price + "</br>It makes " + (generators[page].production.multiply(10)) + " points/sec";
+	document.getElementById("defrag").innerHTML = "Defrag</br>x" + calcDefragBooster(page) + " muti";
+	document.getElementById("generator").innerHTML = "Generator " + (page + 1) + "</br>You own " + generators[page].amount + "</br>Cost: " + generators[page].price + "</br>It makes " + (generators[page].production.multiply(10)) + " points/sec</br>x" + generators[page].muti + " muti";
 
 	app.message = format(points)
 }
