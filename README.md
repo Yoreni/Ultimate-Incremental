@@ -7,6 +7,8 @@ testing link is at https://raw.githack.com/Yoreni/Ultimate-Incremental/testing/
 
 **==========JS VERSION==============**
 
+v5β(dabom2000) fixed defrag and added a how to play link
+
 v4β(yoreni) added the number abberivater
 
 v3β(yoreni) added back the defrag button
