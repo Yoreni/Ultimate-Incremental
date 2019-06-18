@@ -47,12 +47,11 @@ function makeGenerators()
 
 function defrag(gen)
 {
-	var prices2 = ["20","200","5000","2e4","1.25e5"]
-	var production2 = ["0.1","1.5","9","30","75"]
+	var prices = ["20","200","5000","2e4","1.25e5"]
 	
 	generators[gen].muti = calcDefragBooster(gen);
 	generators[gen].amount = new Decimal(0);
-	generators[gen].price = new Decimal(prices2[gen]);
+	generators[gen].price = new Decimal(prices[gen]);
 	pointsProduction = calcProduction();
 }
 
@@ -62,7 +61,6 @@ function calcProduction()
 	for(const gen of generators)
 	{
 		total = total.add(gen.amount.times(gen.production.times(gen.muti)));
-		//console.log(gen.amount.times(gen.production.times(gen.muti));
 	}
 	return total
 }
