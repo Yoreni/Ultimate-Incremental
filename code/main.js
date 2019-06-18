@@ -109,8 +109,8 @@ function format(x)
 	if(x.equals(0)) return "0";
 	else if(x.lessThan(1000))
 	{
-		var dp = Math.pow(10,((Math.floor(Math.log(mag)) - 2) * -1))
-		return Math.floor((mag * dp)) / dp;
+		var dp = Math.pow(10,((Math.floor(Math.log10(mag)) - 2) * -1))
+		return (Math.floor((mag * dp)) / dp) + "";
 	}
 	else if(x.lessThan(new Decimal("1e" + (abb.length * 3))))
 	{
@@ -120,7 +120,7 @@ function format(x)
 			lay--;
 		}
 		var factor = Math.pow(10,Math.floor(Math.log10(mag) / 3) * 3);
-		var dp = Math.pow(10,((Math.floor(Math.log(x / factor)) - 2) * -1))
+		var dp = Math.pow(10,((Math.floor(Math.log10(x / factor)) - 2) * -1))
 		return Math.floor((x / factor) * dp) / dp + abb[Math.log10(factor) / 3];
 	}
 }
@@ -146,10 +146,10 @@ function gameLoop()
 {
 	points = points.add(pointsProduction)
 	pps = pointsProduction.multiply(10)
-	document.getElementById("points").innerHTML = "Points:" + points;
-	document.getElementById("clickable").innerHTML = "$$$ Click $$$</br>+" + pointsClick + " points";
-	document.getElementById("defrag").innerHTML = "Defrag</br>x" + calcDefragBooster(page) + " muti";
-	document.getElementById("generator").innerHTML = "Generator " + (page + 1) + "</br>You own " + generators[page].amount + "</br>Cost: " + generators[page].price + "</br>It makes " + (generators[page].production.multiply(10)) + " points/sec</br>x" + generators[page].muti + " muti";
+	document.getElementById("points").innerHTML = "Points:" + format(points);
+	document.getElementById("clickable").innerHTML = "$$$ Click $$$</br>+" + format(pointsClick) + " points";
+	document.getElementById("defrag").innerHTML = "Defrag</br>x" + format(calcDefragBooster(page)) + " muti";
+	document.getElementById("generator").innerHTML = "Generator " + (page + 1) + "</br>You own " + format(generators[page].amount) + "</br>Cost: " + format(generators[page].price) + "</br>It makes " + format(generators[page].production.multiply(10)) + " points/sec</br>x" + format(generators[page].muti) + " muti";
 
 	app.message = format(points)
 }

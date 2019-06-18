@@ -5,6 +5,8 @@ play at https://yoreni.github.io/Ultimate-Incremental/index.html
 
 **==========JS VERSION==============**
 
+v4β(yoreni) added the number abberivater
+
 v3β(yoreni) added back the defrag button
 
 v2β(yoreni) trying to reposition the elements to make it look nicer and orginised
