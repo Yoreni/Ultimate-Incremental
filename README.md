@@ -7,6 +7,8 @@ testing link is at https://raw.githack.com/Yoreni/Ultimate-Incremental/testing/
 
 **==========JS VERSION==============**
 
+v4β(yoreni) added the number abberivater
+
 v3β(yoreni) added back the defrag button
 
 v2β(yoreni) trying to reposition the elements to make it look nicer and orginised
