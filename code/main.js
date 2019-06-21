@@ -30,8 +30,8 @@ vm.message = 'a'
 
 function makeGenerators()
 {
-	var prices = ["20","200","5000","2e4","1.25e5"]
-	var production = ["0.1","1.5","9","30","75"]
+	var prices = ["20","200","5000","20000","125000","400000","1e6"]
+	var production = ["0.1","1.5","9","30","75","200","900"]
 	
 	for(var a = 0 ; a < prices.length ; a = a + 1) //this is a for loop think of it like the repeat block in scratch
 	{
@@ -47,7 +47,7 @@ function makeGenerators()
 
 function defrag(gen)
 {
-	var prices = ["20","200","5000","2e4","1.25e5"]
+	var prices = ["20","200","5000","20000","125000","400000","1e6"]
 	
 	generators[gen].muti = calcDefragBooster(gen);
 	generators[gen].amount = new Decimal(0);

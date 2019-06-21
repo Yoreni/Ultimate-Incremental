@@ -7,6 +7,8 @@ testing link is at https://raw.githack.com/Yoreni/Ultimate-Incremental/testing/
 
 **==========JS VERSION==============**
 
+v8β(yoreni) added generators 6 & 7
+
 v7β(dabom2000) added favicon image
 
 v6β(dabom2000) added dividers in the how to play page
