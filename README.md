@@ -7,6 +7,8 @@ testing link is at https://raw.githack.com/Yoreni/Ultimate-Incremental/testing/
 
 **==========JS VERSION==============**
 
+v9β(yoreni) fixed the display of points and added tabs though they do not work propley yet
+
 v8β(yoreni) added generators 6 & 7
 
 v7β(dabom2000) added favicon image
