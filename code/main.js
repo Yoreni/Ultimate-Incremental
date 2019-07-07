@@ -146,7 +146,7 @@ function gameLoop()
 	pps = pointsProduction.multiply(10)
 	document.getElementById("points").innerHTML = "Points:" + format(points);
 	document.getElementById("clickable").innerHTML = "$$$ Click $$$</br>+" + format(pointsClick) + " points";
-	document.getElementById("defrag").innerHTML = "Defrag</br>x" + format(calcDefragBooster(page)) + " muti";
+	document.getElementById("defrag").innerHTML = "Defrag</br>x" + format(calcDefragBooster(page).divide(generators[page].muti) + " multi<br>x" + format(calcDefragBooster(page)) + " total multi";
 	document.getElementById("generator").innerHTML = "Generator " + (page + 1) + "</br>You own " + format(generators[page].amount) + "</br>Cost: " + format(generators[page].price) + "</br>It makes " + format(generators[page].production.multiply(10)) + " points/sec</br>x" + format(generators[page].muti) + " muti";
 
 	app.message = format(points)
