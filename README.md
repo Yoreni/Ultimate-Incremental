@@ -7,6 +7,8 @@ testing link is at https://raw.githack.com/Yoreni/Ultimate-Incremental/testing/
 
 **==========JS VERSION==============**
 
+v1γ(dabom2000) made a QoL feature which says the multiplier after defrag and not just the total mult after defrag
+
 v9β(yoreni) fixed the display of points and added tabs though they do not work propley yet
 
 v8β(yoreni) added generators 6 & 7
