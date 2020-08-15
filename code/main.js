@@ -155,7 +155,7 @@ function gameLoop()
 	}
 	else
 	{
-		document.getElementById("defrag").innerHTML = "You need at least 5 of these to defrag.";
+		document.getElementById("defrag").innerHTML = "You need at least 6 of these to defrag.";
 	}
 	document.getElementById("generator").innerHTML = "Generator " + (page + 1) + "</br>You own " + format(generators[page].amount) + "</br>Cost: " + format(generators[page].price) + "</br>It makes " + format(generators[page].production.multiply(10)) + " points/sec</br>x" + format(generators[page].muti) + " muti";
 
