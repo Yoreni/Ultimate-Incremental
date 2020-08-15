@@ -7,6 +7,8 @@ testing link is at https://raw.githack.com/Yoreni/Ultimate-Incremental/testing/
 
 **==========JS VERSION==============**
 
+v2γ(yoreni) fixed bug where you can defrag too early and get a mutiplyer less than 1.
+
 v1γ(dabom2000) made a QoL feature which says the multiplier after defrag and not just the total mult after defrag
 
 v9β(yoreni) fixed the display of points and added tabs though they do not work propley yet
