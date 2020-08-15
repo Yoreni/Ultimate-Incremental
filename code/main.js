@@ -49,10 +49,13 @@ function defrag(gen)
 {
 	var prices = ["20","200","5000","20000","125000","400000","1e6"]
 	
-	generators[gen].muti = calcDefragBooster(gen);
-	generators[gen].amount = new Decimal(0);
-	generators[gen].price = new Decimal(prices[gen]);
-	pointsProduction = calcProduction();
+	if(generators[gen].amount > 5)
+	{
+		generators[gen].muti = calcDefragBooster(gen);
+		generators[gen].amount = new Decimal(0);
+		generators[gen].price = new Decimal(prices[gen]);
+		pointsProduction = calcProduction();
+	}
 }
 
 function calcProduction()
@@ -146,7 +149,14 @@ function gameLoop()
 	pps = pointsProduction.multiply(10)
 	document.getElementById("points").innerHTML = "Points:" + format(points);
 	document.getElementById("clickable").innerHTML = "$$$ Click $$$</br>+" + format(pointsClick) + " points";
-	document.getElementById("defrag").innerHTML = "Defrag</br>x" + format(calcDefragBooster(page).divide(generators[page].muti)) + " multi<br>x" + format(calcDefragBooster(page)) + " total multi";
+	if(generators[page].amount > 5)
+	{
+		document.getElementById("defrag").innerHTML = "Defrag</br>x" + format(calcDefragBooster(page).divide(generators[page].muti)) + " multi<br>x" + format(calcDefragBooster(page)) + " total multi";
+	}
+	else
+	{
+		document.getElementById("defrag").innerHTML = "You need at least 5 of these to defrag.";
+	}
 	document.getElementById("generator").innerHTML = "Generator " + (page + 1) + "</br>You own " + format(generators[page].amount) + "</br>Cost: " + format(generators[page].price) + "</br>It makes " + format(generators[page].production.multiply(10)) + " points/sec</br>x" + format(generators[page].muti) + " muti";
 
 	app.message = format(points)
