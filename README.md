@@ -4,7 +4,7 @@ play at https://yoreni.github.io/Ultimate-Incremental/index.html
 testing link is at https://raw.githack.com/Yoreni/Ultimate-Incremental/testing/
 
 **Changelogs**
-
+(dabom2000 is mkey's scratch username)
 **==========JS VERSION==============**
 
 v2γ(yoreni) fixed bug where you can defrag too early and get a mutiplyer less than 1.
